@@ -14,6 +14,9 @@ export default defineEventHandler(async (event) => {
             user: config.smtpUser,
             pass: config.smtpPass,
         },
+        tls: {
+            rejectUnauthorized: false,
+        },
     });
 
     try {
