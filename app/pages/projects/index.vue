@@ -38,39 +38,15 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { projects } from '~/data/portfolio'
 
 const activeFilter = ref('Tous')
 
-const allTechs = ['Tous', 'Vue 3', 'Nuxt 3', 'TailwindCSS', 'TypeScript', 'Node.js']
-
-const projects = [
-  {
-    title: 'E-commerce Futuriste',
-    slug: 'ecommerce-futuriste',
-    description: 'Une plateforme e-commerce ultra rapide avec un design neumorphisme.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600&h=400',
-    technologies: ['Nuxt 3', 'TailwindCSS'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  },
-  {
-    title: 'SaaS Analytics Dashboard',
-    slug: 'saas-dashboard',
-    description: 'Dashboard en temps réel pour le suivi des métriques SaaS.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=400',
-    technologies: ['Vue 3', 'TypeScript'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  },
-  {
-    title: 'API Gateway Management',
-    slug: 'api-gateway',
-    description: 'Interface de gestion pour API Gateway avec Node.js.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600&h=400',
-    technologies: ['Node.js', 'Vue 3', 'TailwindCSS'],
-    github: 'https://github.com'
-  }
-]
+const allTechs = computed(() => {
+  const techs = new Set(['Tous'])
+  projects.forEach(p => p.technologies.forEach(t => techs.add(t)))
+  return Array.from(techs)
+})
 
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'Tous') return projects

@@ -10,7 +10,7 @@
           <span class="font-black text-white text-sm">JC</span>
         </div>
         <span class="font-bold tracking-tight text-white group-hover:text-accent transition-colors duration-300">
-          Jean<span class="text-accent">.</span>dev
+          Jean<span class="text-accent">.</span>Claude
         </span>
       </NuxtLink>
 
@@ -31,9 +31,11 @@
 
       <!-- Right Side -->
       <div class="flex items-center gap-3">
-        <ThemeToggle />
+        <ClientOnly>
+          <ThemeToggle />
+        </ClientOnly>
         <a
-          href="https://github.com"
+          href="https://github.com/jean-claude07"
           target="_blank"
           class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg glass border border-white/8 text-sm font-medium text-slate-300 hover:text-white hover:border-accent/30 transition-all duration-300"
         >
@@ -73,16 +75,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Menu, X, Github } from 'lucide-vue-next'
+import { navLinks } from '~/data/portfolio'
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
 
-const links = [
-  { name: 'Accueil', path: '/' },
-  { name: 'Projets', path: '/projects' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' }
-]
+const links = navLinks
 
 const handleScroll = () => { scrolled.value = window.scrollY > 20 }
 onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))

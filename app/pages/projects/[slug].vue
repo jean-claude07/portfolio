@@ -48,47 +48,11 @@
 <script setup>
 import { ArrowLeft, Github, ExternalLink } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
+import { projects } from '~/data/portfolio'
 
 const route = useRoute()
 
-// Mock data
-const projects = [
-  {
-    title: 'E-commerce Futuriste',
-    slug: 'ecommerce-futuriste',
-    description: 'Une plateforme e-commerce ultra rapide avec un design neumorphisme. Ce projet démontre la capacité à créer des interfaces fluides avec des micro-interactions avancées. Il intègre un panier dynamique et un checkout optimisé.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200&h=600',
-    technologies: ['Nuxt 3', 'TailwindCSS', 'Stripe', 'Supabase'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  },
-  {
-    title: 'SaaS Analytics Dashboard',
-    slug: 'saas-dashboard',
-    description: 'Dashboard en temps réel pour le suivi des métriques SaaS. Les données sont agrégées et affichées en direct via des WebSockets.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200&h=600',
-    technologies: ['Vue 3', 'TypeScript', 'GraphQL', 'D3.js'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  },
-  {
-    title: 'AI Content Generator',
-    slug: 'ai-content-generator',
-    description: 'Service de génération de contenu propulsé par OpenAI API et Nuxt. Interface minimaliste favorisant la concentration.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200&h=600',
-    technologies: ['Nuxt 3', 'OpenAI API', 'Pinia', 'TailwindCSS'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  },
-  {
-    title: 'API Gateway Management',
-    slug: 'api-gateway',
-    description: 'Interface de gestion pour API Gateway avec Node.js.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200&h=600',
-    technologies: ['Node.js', 'Vue 3', 'TailwindCSS'],
-    github: 'https://github.com'
-  }
-]
+// utiliser le fichier portfolio.ts pour récupérer les données
 
 const project = projects.find(p => p.slug === route.params.slug)
 

@@ -96,7 +96,7 @@
         :enter="{ opacity: 1, y: 0, transition: { delay: 600, duration: 600 } }"
         class="flex flex-wrap items-center justify-center gap-2"
       >
-        <span v-for="badge in badges" :key="badge" class="px-3 py-1 text-xs font-medium rounded-full glass border border-white/5 text-slate-400">
+        <span v-for="badge in heroBadges" :key="badge" class="px-3 py-1 text-xs font-medium rounded-full glass border border-white/5 text-slate-400">
           {{ badge }}
         </span>
       </div>
@@ -165,17 +165,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useMouse } from '~/composables/useMouse'
+import { heroBadges, heroTexts } from '~/data/portfolio'
 
 const { lerpX, lerpY } = useMouse(0.06)
-
-const badges = ['Nuxt 3', 'Vue 3', 'TypeScript', 'Node.js', 'TailwindCSS', 'Docker', 'PostgreSQL', 'GraphQL']
-
-const texts = [
-  "Building modern, scalable web experiences.",
-  "Crafting pixel-perfect interfaces with Vue.",
-  "Designing systems that scale to millions.",
-  "Turning ideas into impactful products.",
-]
 
 const displayedText = ref('')
 let charIndex = 0
@@ -184,7 +176,7 @@ let isDeleting = false
 let timeout: ReturnType<typeof setTimeout>
 
 function typewriter() {
-  const current = texts[textIndex]
+  const current = heroTexts[textIndex]
   if (!isDeleting) {
     displayedText.value = current.slice(0, ++charIndex)
     if (charIndex === current.length) {

@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Tt]humbs.db
+
+# Dependency directories
+node_modules/
+dist/
+.pnp
+.pnp.js
+
+# Nuxt 3 output
+.nuxt/
+.output/
+dist/
+.nitro/
+.cache/
+.data/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+cypress/videos/
+cypress/screenshots/
+.nyc_output
+
+# Documentation
+# Add if needed: docs/_build/
+
+# Local Netlify folder
+.netlify

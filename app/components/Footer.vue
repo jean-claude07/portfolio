@@ -11,21 +11,21 @@
             <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center">
               <span class="font-black text-white text-xs">JC</span>
             </div>
-            <span class="font-bold text-white">Jean<span class="text-accent">.</span>dev</span>
+            <span class="font-bold text-white">Jean<span class="text-accent">.</span>Claude</span>
           </div>
           <p class="text-xs text-slate-500">Full Stack Developer · Disponible pour missions</p>
         </div>
 
         <!-- Links -->
         <div class="flex items-center gap-6">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent hover:border-accent/30 transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-accent/20">
+          <a href="https://github.com/jean-claude07" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent hover:border-accent/30 transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-accent/20">
             <Github class="w-4 h-4" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent-secondary hover:border-accent-secondary/30 transition-all duration-300 hover:scale-110">
+          <a href="https://www.linkedin.com/in/rakotonarivo-jean-claude-002534199" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent-secondary hover:border-accent-secondary/30 transition-all duration-300 hover:scale-110">
             <Linkedin class="w-4 h-4" />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent-tertiary hover:border-accent-tertiary/30 transition-all duration-300 hover:scale-110">
-            <Twitter class="w-4 h-4" />
+          <a href="https://www.facebook.com/racle.rickhy.3" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg glass border border-white/5 text-slate-500 hover:text-accent-tertiary hover:border-accent-tertiary/30 transition-all duration-300 hover:scale-110">
+            <Facebook class="w-4 h-4" />
           </a>
         </div>
       </div>
@@ -38,5 +38,5 @@
 </template>
 
 <script setup lang="ts">
-import { Github, Linkedin, Twitter } from 'lucide-vue-next'
+import { Github, Linkedin, Facebook } from 'lucide-vue-next'
 </script>

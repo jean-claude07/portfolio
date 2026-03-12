@@ -10,6 +10,10 @@
         <input v-model="form.email" type="email" id="email" required class="w-full px-4 py-3 rounded-lg flex bg-white/50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-all text-slate-900 dark:text-white" placeholder="john@example.com" />
       </div>
       <div>
+        <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Sujet</label>
+        <input v-model="form.subject" type="text" id="subject" required class="w-full px-4 py-3 rounded-lg flex bg-white/50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-all text-slate-900 dark:text-white" placeholder="Demande de contact" />
+      </div>
+      <div>
         <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
         <textarea v-model="form.message" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg flex bg-white/50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-all resize-none text-slate-900 dark:text-white" placeholder="Comment puis-je vous aider ?"></textarea>
       </div>
@@ -25,6 +29,10 @@
       <div v-if="status === 'success'" class="p-4 rounded-xl bg-green-500/20 border border-green-500/50 text-green-700 dark:text-green-300 text-center mt-4">
         Message envoyé avec succès !
       </div>
+
+      <div v-if="status === 'error'" class="p-4 rounded-xl bg-red-500/20 border border-red-500/50 text-red-700 dark:text-red-300 text-center mt-4">
+        Une erreur est survenue lors de l'envoi du message.
+      </div>
     </div>
   </form>
 </template>
@@ -33,15 +41,23 @@
 import { ref } from 'vue'
 import { Loader2 } from 'lucide-vue-next'
 
-const form = ref({ name: '', email: '', message: '' })
+const form = ref({ name: '', email: '', subject: '', message: '' })
 const status = ref('idle')
 
 const submitForm = async () => {
   status.value = 'loading'
-  // Simulate API call
-  await new Promise(resolve => setTimeout(resolve, 1500))
-  status.value = 'success'
-  form.value = { name: '', email: '', message: '' }
-  setTimeout(() => { status.value = 'idle' }, 5000)
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: form.value
+    })
+    status.value = 'success'
+    form.value = { name: '', email: '', subject: '', message: '' }
+    setTimeout(() => { status.value = 'idle' }, 5000)
+  } catch (error) {
+    console.error('Submission error:', error)
+    status.value = 'error'
+    setTimeout(() => { status.value = 'idle' }, 5000)
+  }
 }
 </script>
